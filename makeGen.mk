@@ -23,17 +23,17 @@ help:
 CURRENT_DIR := $(shell pwd)
 OPTS=
 
-D=/
-P=:
-Q="
 
 TKG_JAR = .$(D)bin$(D)TestKitGen.jar
 JSON_SIMPLE = .$(D)lib$(D)json-simple.jar
 
-ifneq (,$(findstring Win,$(OS)))
-CURRENT_DIR := $(subst \,/,$(CURRENT_DIR))
-P=;
+
+
+ifndef TEST_ROOT
+	TEST_ROOT := $(shell pwd)/..
 endif
+
+include $(TEST_ROOT)/TKG/common.mk
 include $(CURRENT_DIR)$(D)featureSettings.mk
 -include $(CURRENT_DIR)$(D)autoGenEnv.mk
 include $(CURRENT_DIR)$(D)envSettings.mk

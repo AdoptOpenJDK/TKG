@@ -12,12 +12,11 @@
 # limitations under the License.
 ##############################################################################
 
-D = /
-Q = "
-
 ifndef TEST_ROOT
-	TEST_ROOT := $(shell pwd)$(D)..
+	TEST_ROOT := $(shell pwd)/..
 endif
+
+include $(TEST_ROOT)/TKG/common.mk
 
 COMPILATION_OUTPUT=$(TEST_ROOT)$(D)TKG$(D)output_compilation
 COMPILATION_LOG=$(COMPILATION_OUTPUT)$(D)compilation.log

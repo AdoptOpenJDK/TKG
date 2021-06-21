@@ -12,18 +12,11 @@
 # limitations under the License.
 ##############################################################################
 
-#
-# Makefile to run various JVM tests
-#
+D = /
+P = :
+Q = "
+SQ = '
 
-.DEFAULT_GOAL := test
-
-
-SUBDIRS = ..
-
-ifndef TEST_ROOT
-	TEST_ROOT := $(shell pwd)/..
+ifneq (,$(findstring Win,$(OS)))
+	P=;
 endif
-
-include $(TEST_ROOT)/TKG/common.mk
-include settings.mk
